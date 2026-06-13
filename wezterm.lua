@@ -1,3 +1,8 @@
+-- BEGIN task-dashboard
+-- Loads the notif_dash focus tracker. Managed by install.sh --wezterm.
+require 'events.td_focus'
+-- END task-dashboard
+
 -- WezTerm configuration entry point.
 --
 -- This file stays thin: it builds the config object, registers event
@@ -12,7 +17,6 @@
 --   config/session.lua     session persistence (resurrect.wezterm autosave)
 --   config/custom_commands.lua  single source of truth: custom commands
 --                          (key+action+label) shared by keys + palette
---   events/focus.lua       task-dashboard focus tracker (notif-dash)
 --   events/command_palette.lua  adds custom actions to the command palette
 --   plugins/resurrect.lua  shared resurrect.wezterm plugin handle
 --
@@ -23,8 +27,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
--- Event handlers (registered on load; required for notif-dash to work).
-require 'events.focus'
+-- Event handlers (registered on load).
 require 'events.command_palette'   -- adds custom actions to the command palette
 
 -- Settings modules, applied in order.
