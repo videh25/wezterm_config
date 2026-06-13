@@ -1,3 +1,4 @@
-# Installed by notif_dash (https://github.com/.../notif_dash) — not owned by this repo.
-# Dropped here by `install.sh --wezterm` (source: notif_dash/wezterm/td_focus.lua).
-events/td_focus.lua
+# Folder reserved for notif_dash (https://github.com/.../notif_dash) — not owned
+# by this repo. Populated by `install.sh --wezterm`; the committed folder-loader
+# in wezterm.lua loads whatever is here (no-op when the folder is absent/empty).
+notif_dash/

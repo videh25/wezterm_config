@@ -1,6 +1,13 @@
 -- BEGIN task-dashboard
--- Loads the notif_dash focus tracker. Managed by install.sh --wezterm.
-require 'events.td_focus'
+-- This loader line originated from the notif_dash profile (install.sh
+-- --wezterm). It loads every *.lua that notif_dash drops into the
+-- notif_dash/ folder beside this file (currently the focus tracker). An
+-- absent or empty folder is a no-op, so this stays safe even on a machine
+-- where notif_dash is not installed.
+local _nd = require 'wezterm'
+for _, _f in ipairs(_nd.glob(_nd.config_dir .. '/notif_dash/*.lua')) do
+    dofile(_f)
+end
 -- END task-dashboard
 
 -- WezTerm configuration entry point.
